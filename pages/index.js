@@ -26,6 +26,8 @@ export default function Home() {
         <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5" />
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />{" "}
+        <meta name="description" content="rotpunkt.dev"/>
+
       </Head>
       <section className="text-blueGray-700 bg-black">
         <div className=" flex  h-screen w-full justify-center items-center">
@@ -34,7 +36,7 @@ export default function Home() {
               {" "}
               rotpunkt.dev{" "}
             </h1>
-            <p className="mx-auto p-4  font-medium leading-relaxed text-gray-500 lg:w-1/2">
+            <p className="mx-auto p-4  font-medium leading-relaxed text-gray-600 lg:w-1/2">
               Our projects will be shown soon. Stay tuned and drop us a mail: hi
               [at] rotpunkt.dev
             </p>

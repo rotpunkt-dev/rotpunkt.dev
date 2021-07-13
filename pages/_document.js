@@ -11,6 +11,10 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <link
+            href="https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap"
+            rel="stylesheet"
+          />
+          <link
             rel="apple-touch-icon"
             sizes="180x180"
             href="favicon/apple-touch-icon.png"

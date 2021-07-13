@@ -10,14 +10,14 @@ export default function Home() {
           startDelay={1000}
           >
 
-            <h1 className="mx-auto mb-12 text-2xl font-semibold leading-none tracking-tighter text-red-400 lg:w-1/2 sm:text-6xl title-font">
+            <h1 className="font-sans mx-auto mb-12 text-4xl font-extrabold leading-none tracking-tighter text-red-400 lg:w-1/2 sm:text-6xl title-font">
               {" "}
               rotpunkt.dev{" "}
             </h1>
 
 
             </Typist>
-            <p className="mx-auto p-4  font-medium leading-relaxed text-gray-400 lg:w-1/2">
+            <p className=" font-sans mx-auto p-4  font-medium leading-relaxed text-gray-400 lg:w-1/2">
               Our projects will be shown soon. Stay tuned and drop us a mail: hi
               [at] rotpunkt.dev
             </p>

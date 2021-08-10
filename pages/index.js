@@ -1,38 +1,53 @@
 import Typist from "react-typist";
-import 'react-typist/dist/Typist.css'
+import "react-typist/dist/Typist.css";
+import ProjectView from "components/services";
+import { Circle, GithubLogo } from "phosphor-react";
 export default function Home() {
   return (
     <>
-      <section className="text-blueGray-700 bg-gray-900">
-        <div className=" flex  h-screen w-full justify-center items-center">
-          <div className="flex flex-col w-full mb-12 text-center">
-            <h1>
-              <Typist
-                avgTypingDelay={120}
-                startDelay={1000}
-                cursor={{   element: '•',}}
-                className="font-sans mx-auto mb-12 text-4xl font-extrabold leading-none tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-red-600  to-purple-500 lg:w-1/2 sm:text-6xl title-font"
-              >
-                rotpunkt.dev{" "}
-              </Typist>
-            </h1>
-            <p className=" font-sans mx-auto p-4  font-medium leading-relaxed text-gray-400 lg:w-1/2">
-              Our projects will be shown soon. Stay tuned and drop us a mail: hi
-              [at] rotpunkt.dev
-            </p>
-            <a
-              href="https://github.com/rotpunkt-dev"
-              target="_blank"
-              rel="noopener"
-            >
-              <svg className="fill-current w-8 h-8 text-gray-400 mx-auto ">
-                <title>GitHub</title>
-                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
-              </svg>
-            </a>
+      <div className="absolute w-full min-h-screen">
+        <div
+          className="absolute z-0 top-0 w-full h-1/2 bg-cover bg-bottom pt-20 px-12 text-white text-center"
+          /* style="background-image: url('images/background.jpg')"
+           */
+        ></div>
+      </div>
+      <div className="relative z-10 flex min-h-screen h-auto justify-center items-center">
+        <div className="relative max-w-4xl">
+          <div className="absolute z-10 inset-0 bg-gradient-to-r from-cyan-400 to-emerald-400 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-lg"></div>
+          <div className="relative z-20 bg-white md:flex justify-between p-12 shadow-lg rounded-lg w-full max-w-4xl">
+            <div className="sm:flex flex-col justify-between space-y-6 py-6 md:pr-10">
+              <div>
+                <h2 className="text-lg">Hello, we are</h2>
+                <h1>
+                  <Typist
+                    avgTypingDelay={120}
+                    startDelay={1000}
+                    cursor={{ element: "•" }}
+                    className="font-sans pt-1 text-4xl font-extrabold leading-none tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-red-600  to-purple-500  sm:text-6xl "
+                  >
+                    rotpunkt.dev{" "}
+                  </Typist>
+                </h1>
+              </div>
+              <p className="text-xl leading-relaxed">
+                Our projects will be shown soon. Stay tuned and drop us a mail:
+              </p>
+              <p className="text-xl ">hi [at] rotpunkt.dev</p>
+              <div className="inline-flex text-xl text-gray-600 space-x-5">
+                <a
+                  href="https://github.com/rotpunkt-dev"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <GithubLogo className="hover:text-red-600" />
+                </a>
+              </div>
+            </div>
+            {/* <Circle size={96} className="hover:text-red-600 flex-shrink-0 w-80 my-auto"></Circle> */}
           </div>
         </div>
-      </section>
+      </div>
     </>
   );
 }

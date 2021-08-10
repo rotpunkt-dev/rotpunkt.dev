@@ -39,6 +39,7 @@ export default function Home() {
                   href="https://github.com/rotpunkt-dev"
                   target="_blank"
                   rel="noopener"
+                  aria-label="Github Link"
                 >
                   <GithubLogo className="hover:text-red-600" />
                 </a>

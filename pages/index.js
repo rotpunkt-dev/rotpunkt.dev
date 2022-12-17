@@ -1,21 +1,13 @@
 import Typist from "react-typist";
 import "react-typist/dist/Typist.css";
-import ProjectView from "components/services";
 import { Circle, GithubLogo } from "phosphor-react";
 export default function Home() {
   return (
-    <>
-      <div className="absolute w-full min-h-screen">
-        <div
-          className="absolute z-0 top-0 w-full h-1/2 bg-cover bg-bottom pt-20 px-12 text-white text-center"
-          /* style="background-image: url('images/background.jpg')"
-           */
-        ></div>
-      </div>
-      <div className="relative z-10 flex min-h-screen h-auto justify-center items-center">
+    
+      <div className="relative z-10 flex min-h-screen h-auto justify-center items-center bg-black text-white">
         <div className="relative max-w-4xl">
-          <div className="absolute z-10 inset-0 bg-gradient-to-r from-cyan-400 to-emerald-400 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-lg"></div>
-          <div className="relative z-20 bg-white md:flex justify-between p-12 shadow-lg rounded-lg w-full max-w-4xl">
+          <div className="absolute z-10 inset-0 bg-gradient-to-r from-red-600 to-purple-500 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-lg"></div>
+          <div className="relative z-20 bg-black md:flex justify-between p-12 shadow-lg rounded-lg w-full max-w-4xl">
             <div className="sm:flex flex-col justify-between space-y-6 py-6 md:pr-10">
               <div>
                 <h2 className="text-lg">Hello, we are</h2>
@@ -49,6 +41,5 @@ export default function Home() {
           </div>
         </div>
       </div>
-    </>
   );
 }

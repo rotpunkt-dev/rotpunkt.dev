@@ -20,9 +20,9 @@ const escapeHeader = (value: string) => value.replace(/[\r\n]/g, ' ').trim();
 export const POST: APIRoute = async ({ request, redirect }) => {
 	try {
 		const form = await request.formData();
-		const name = String(form.get('name') ?? '').trim();
+		const name = String(form.get('name') ?? '').trim().slice(0, 200);
 		const email = String(form.get('email') ?? '').trim();
-		const message = String(form.get('message') ?? '').trim();
+		const message = String(form.get('message') ?? '').trim().slice(0, 10000);
 		const website = String(form.get('website') ?? '').trim();
 
 		// Quietly accept honeypot submissions without sending them.

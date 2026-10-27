@@ -6,19 +6,18 @@ import { projects } from '../data/projects';
 ---
 
 <Layout>
-	<a class="skip-link" href="#main">Skip to content</a>
 	<SiteHeader />
-	<main id="main">
+	<main id="main-content">
 		<section class="hero">
 			<p class="kicker">Independent web agency</p>
 			<h1>Websites<br /><em>light</em> and <em>fast.</em></h1>
 		</section>
 
 		<section class="work" id="work" aria-labelledby="work-heading">
-			<div class="section-head"><p class="kicker">Selected work</p></div>
+			<div class="section-head"><p class="kicker">Selected work</p><h2 id="work-heading">Built around the<br />people behind it.</h2></div>
 			<div class="project-grid">
 				{projects.map((project) => (
-					<a class={`project ${project.colour}`} href={project.url} target="_blank" rel="noopener noreferrer">
+					<a class={`project ${project.colour}`} href={project.url} target="_blank" rel="noopener noreferrer" aria-label={`Visit the ${project.name} website`}>
 						<div class="project-meta"><span>{project.name}</span><span>{project.discipline}</span></div>
 						<h3>{project.title}</h3>
 						<p class="project-stack">{project.techStack.join(' · ')}</p>
@@ -47,14 +46,13 @@ import { projects } from '../data/projects';
 </Layout>
 
 <style>
-	.skip-link { position: absolute; left: 1rem; top: -5rem; z-index: 3; padding: .7rem 1rem; background: var(--ink); color: white; } .skip-link:focus { top: 1rem; }
 	main { overflow: hidden; } .hero, .work, .services, .about { width: min(calc(100% - 3rem), 78rem); margin: 0 auto; }
 	.hero { min-height: 72vh; padding: clamp(5rem, 11vw, 10rem) 0 5rem; display: grid; align-content: start; }
 	.kicker { margin: 0 0 1.15rem; font: 700 .75rem/1.2 ui-monospace, monospace; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); }
 	h1, h2, h3, p { margin-top: 0; } h1, h2 { letter-spacing: -.07em; line-height: .94; font-weight: 800; } h1 { font-size: clamp(4rem, 10vw, 9rem); } h1 em { color: var(--violet); font-style: normal; }
 	.intro { margin-top: clamp(3rem, 9vw, 8rem); display: flex; gap: 2rem; align-items: end; justify-content: space-between; max-width: 58rem; } .intro p { max-width: 35rem; font-size: clamp(1.15rem, 2vw, 1.6rem); line-height: 1.45; } .intro a, .about a { font-weight: 800; text-decoration-thickness: 1px; text-underline-offset: .25em; white-space: nowrap; }
 	.work { padding-top: 3rem; } .section-head { display: grid; grid-template-columns: 1fr 2fr; padding-bottom: 2.5rem; } h2 { font-size: clamp(2.8rem, 6vw, 5.5rem); }
-	.project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; } .project { min-height: 31rem; padding: 1.5rem; display: flex; flex-direction: column; border-radius: 1.5rem; overflow: hidden; color: var(--ink); text-decoration: none; transition: transform .16s ease, box-shadow .16s ease; } .project:hover { transform: translateY(-.35rem); box-shadow: 0 1.25rem 2.5rem rgba(23,23,23,.12); } .project.acid { background: var(--acid); } .project.violet { background: #c7b5ff; } .project.coral { background: #ff9d7c; } .project.blue { background: #8fcae6; } :global(:root[data-theme='dark']) .project.acid { background: #b9d83d; color: #171717; } :global(:root[data-theme='dark']) .project.violet { background: #8064d6; color: #171717; } .project-meta { display: flex; justify-content: space-between; gap: 1rem; font: 700 .69rem/1.2 ui-monospace, monospace; letter-spacing: .04em; text-transform: uppercase; } .project h3 { max-width: 29rem; margin: 2rem 0 1rem; font-size: clamp(1.55rem, 2.8vw, 2.5rem); letter-spacing: -.055em; line-height: 1.05; } .project-stack { margin: 0 0 1.5rem; font: 700 .72rem/1.3 ui-monospace, monospace; letter-spacing: .04em; text-transform: uppercase; opacity: .7; } .project img { width: 100%; height: 16rem; object-fit: cover; object-position: top; border-radius: .85rem; box-shadow: 0 .8rem 1.7rem rgba(0,0,0,.17); }
+	.project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; } .project { min-height: 31rem; padding: 1.5rem; display: flex; flex-direction: column; border-radius: 1.5rem; overflow: hidden; color: var(--ink); text-decoration: none; transition: transform .16s ease, box-shadow .16s ease; } .project:hover { transform: translateY(-.35rem); box-shadow: 0 1.25rem 2.5rem rgba(23,23,23,.12); } .project.acid { background: var(--acid); } .project.violet { background: #d4c7ff; } .project.coral { background: #ff9d7c; } .project.blue { background: #8fcae6; } :global(:root[data-theme='dark']) .project.acid { background: #b9d83d; color: #171717; } :global(:root[data-theme='dark']) .project.violet { background: #a18cff; color: #171717; } :global(:root[data-theme='dark']) .project.coral, :global(:root[data-theme='dark']) .project.blue { color: #171717; } .project-meta { display: flex; justify-content: space-between; gap: 1rem; font: 700 .69rem/1.2 ui-monospace, monospace; letter-spacing: .04em; text-transform: uppercase; } .project h3 { max-width: 29rem; margin: 2rem 0 1rem; font-size: clamp(1.55rem, 2.8vw, 2.5rem); letter-spacing: -.055em; line-height: 1.05; } .project-stack { margin: 0 0 1.5rem; color: #171717; font: 700 .72rem/1.3 ui-monospace, monospace; letter-spacing: .04em; text-transform: uppercase; opacity: 1; } .project img { width: 100%; height: 16rem; object-fit: cover; object-position: top; border-radius: .85rem; box-shadow: 0 .8rem 1.7rem rgba(0,0,0,.17); }
 	@media (min-width: 721px) { .project { min-height: 38rem; } .project img { height: 20rem; } }
 	.services { padding: 10rem 0; } .services > h2 { margin-bottom: 4rem; } .service-list { border-top: 1px solid var(--line); } .service-list > div { display: grid; grid-template-columns: 10rem 1.25fr 1fr; gap: 1.5rem; padding: 1.75rem 0; border-bottom: 1px solid var(--line); } .service-list span { font: 700 .75rem ui-monospace, monospace; color: var(--muted); } .service-list h3 { margin: 0; font-size: 1.35rem; letter-spacing: -.04em; } .service-list p { margin: 0; color: var(--muted); line-height: 1.5; }
 	.about { padding: 5rem 0; display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; border-top: 1px solid var(--line); } .about h2 { font-size: clamp(2.25rem, 4.2vw, 4rem); } .about p { max-width: 38rem; margin: 2rem 0; font-size: 1.15rem; line-height: 1.6; color: var(--muted); }

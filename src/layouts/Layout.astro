@@ -1,0 +1,48 @@
+---
+import '@fontsource-variable/manrope';
+import { siteConfig } from '../config/site';
+
+const { title = siteConfig.title, description = siteConfig.description } = Astro.props;
+const canonicalUrl = new URL(Astro.url.pathname, siteConfig.siteUrl).toString();
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content={description} />
+		<meta name="keywords" content={siteConfig.keywords.join(', ')} />
+		<meta name="robots" content="index, follow" />
+		<link rel="canonical" href={canonicalUrl} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:site_name" content={siteConfig.name} />
+		<meta name="twitter:card" content="summary_large_image" />
+		<title>{title}</title>
+		<script is:inline>
+			(() => {
+				const savedTheme = localStorage.getItem('rotpunkt-theme');
+				const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+				document.documentElement.dataset.theme = savedTheme ?? systemTheme;
+			})();
+		</script>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+	:root { color-scheme: light; --ink: #171717; --paper: #f6f3ed; --muted: #6a6864; --line: #d9d4cb; --violet: #ff746d; --acid: #d7ff5f; font-family: 'Manrope Variable', ui-sans-serif, system-ui, sans-serif; color: var(--ink); background: var(--paper); }
+	:root[data-theme='dark'] { color-scheme: dark; --ink: #f5f1e9; --paper: #171717; --muted: #b8b1a5; --line: #4b4842; --violet: #ff746d; --acid: #d7ff5f; }
+	* { box-sizing: border-box; }
+	html { scroll-behavior: smooth; }
+	body { margin: 0; min-width: 320px; }
+	a { color: inherit; }
+	:focus-visible { outline: 3px solid var(--violet); outline-offset: 4px; }
+	::selection { background: var(--acid); }
+	@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: 0ms !important; animation-duration: 0ms !important; } }
+</style>

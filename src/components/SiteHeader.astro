@@ -1,0 +1,51 @@
+---
+import { siteConfig } from '../config/site';
+---
+
+<header>
+	<a class="brand" href="/" aria-label="rotpunkt.dev home">rotpunkt<span>.</span>dev</a>
+	<nav aria-label="Primary navigation">
+		{siteConfig.navLinks.map((link) => <a href={link.href}>{link.label}</a>)}
+		<a class="contact" href="/contact">Start a project</a>
+		<button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+			<svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg>
+			<svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 14.4A8.7 8.7 0 1 1 9.6 3.8a7 7 0 0 0 10.6 10.6Z"></path></svg>
+		</button>
+	</nav>
+</header>
+
+<script is:inline>
+	(() => {
+		const toggle = document.querySelector('[data-theme-toggle]');
+		if (!(toggle instanceof HTMLButtonElement)) return;
+		const root = document.documentElement;
+		const applyTheme = (theme) => {
+			root.dataset.theme = theme;
+			toggle.setAttribute('aria-pressed', String(theme === 'dark'));
+			toggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+		};
+		applyTheme(root.dataset.theme === 'dark' ? 'dark' : 'light');
+		toggle.addEventListener('click', () => {
+			const theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+			localStorage.setItem('rotpunkt-theme', theme);
+			applyTheme(theme);
+		});
+	})();
+</script>
+
+<style>
+	header { width: min(calc(100% - 3rem), 78rem); margin: 0 auto; padding: 1.5rem 0; display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; }
+	.brand { font-weight: 850; letter-spacing: -0.06em; font-size: 1.32rem; text-decoration: none; }
+	.brand span { color: var(--violet); }
+	nav { display: flex; align-items: center; gap: clamp(1rem, 2.5vw, 2rem); font-size: .93rem; font-weight: 400; }
+	nav a { text-decoration: none; }
+	nav a:not(.contact):hover { color: var(--violet); }
+	.contact { padding: .7rem 1rem; border-radius: 999px; background: var(--ink); color: white; }
+	:global(:root[data-theme='dark']) .contact { background: var(--acid); color: #171717; }
+	.theme-toggle { position: relative; display: grid; width: 2.75rem; height: 2.75rem; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--ink); cursor: pointer; }
+	.theme-toggle svg { position: absolute; width: 1.2rem; height: 1.2rem; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; transition: opacity .16s ease, transform .16s ease; }
+	.moon { opacity: 0; transform: scale(.7) rotate(-20deg); }
+	:global(:root[data-theme='dark']) .sun { opacity: 0; transform: scale(.7) rotate(20deg); }
+	:global(:root[data-theme='dark']) .moon { opacity: 1; transform: scale(1) rotate(0); }
+	@media (max-width: 640px) { header { width: min(calc(100% - 1.5rem), 78rem); } nav { gap: .75rem; } nav a:not(.contact) { display: none; } .contact { font-size: .8rem; } }
+</style>

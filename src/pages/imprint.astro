@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+---
+
+<Layout title="Imprint | rotpunkt.dev" description="Legal information for rotpunkt.dev.">
+	<SiteHeader />
+	<main>
+		<p class="eyebrow">Legal information</p>
+		<h1>Imprint</h1>
+
+		<section>
+			<h2>Information pursuant to § 5 DDG</h2>
+			<p>
+				<strong>Carolin Taubmann, Thomas Taubmann - rotpunkt.dev GBR</strong><br />
+				Am Schönbühl 37<br />
+				91284 Neuhaus an der Pegnitz<br />
+				Germany
+			</p>
+		</section>
+
+		<section>
+			<h2>Contact</h2>
+			<p>
+				Email: <a href="mailto:hello@rotpunkt.dev">hello@rotpunkt.dev</a>
+			</p>
+		</section>
+	
+	</main>
+	<SiteFooter />
+</Layout>
+
+<style>
+	main { width: min(calc(100% - 3rem), 58rem); margin: 0 auto; padding: 7rem 0 2rem; }
+	.eyebrow { margin: 0 0 1rem; color: var(--muted); font: 700 .75rem/1.2 ui-monospace, monospace; letter-spacing: .08em; text-transform: uppercase; }
+	h1, h2 { letter-spacing: -.06em; line-height: 1; } h1 { margin: 0 0 5rem; font-size: clamp(4rem, 10vw, 8rem); } h2 { margin: 0 0 1rem; font-size: clamp(1.5rem, 3vw, 2.2rem); } section { padding: 2rem 0; border-top: 1px solid var(--line); } section p { margin: 0; color: var(--muted); font-size: 1.05rem; line-height: 1.7; } section strong { color: var(--ink); } a { text-underline-offset: .2em; }
+	aside { margin-top: 3rem; padding: 1.25rem; border: 1px solid var(--line); border-left: .35rem solid var(--violet); } aside p { margin: .5rem 0 0; color: var(--muted); line-height: 1.6; }
+	@media (max-width: 720px) { main { width: min(calc(100% - 1.5rem), 58rem); padding-top: 4rem; } h1 { margin-bottom: 3rem; } }
+</style>

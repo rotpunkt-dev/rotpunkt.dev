@@ -1,23 +1,19 @@
 {
-  "name": "rotpunkt.dev",
-  "version": "0.1.0",
+  "name": "rotpunkt-dev",
+  "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
   "dependencies": {
-    "fathom-client": "^3.5.0",
-    "next": "13.0.7",
-    "phosphor-react": "^1.4.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-typist": "^2.0.5"
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.4.13",
-    "postcss": "^8.4.20",
-    "tailwindcss": "^3.2.4"
+    "@astrojs/node": "^11.1.9",
+    "@astrojs/sitemap": "^3.7.3",
+    "@aws-sdk/client-sesv2": "^3.1158.0",
+    "@fontsource-variable/manrope": "^5.2.8",
+    "astro": "^7.0.5",
+    "sharp": "^0.35.3"
   }
 }

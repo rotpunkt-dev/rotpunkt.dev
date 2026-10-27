@@ -1,0 +1,21 @@
+---
+import { siteConfig } from '../config/site';
+const year = new Date().getFullYear();
+---
+
+<footer>
+	<div class="footer-inner">
+		<p class="footer-heading">Have a good project in mind?</p>
+		<a class="email" href="/contact">Start a conversation <span aria-hidden="true">↗</span></a>
+		<div class="bottom"><span>&copy; {year} rotpunkt.dev</span><span><a href="/imprint">Imprint</a> · <a href="/privacy">Privacy</a></span></div>
+	</div>
+</footer>
+
+<style>
+	footer { background: #171717; color: #ffffff; margin-top: 7rem; }
+	.footer-inner { width: min(calc(100% - 3rem), 78rem); margin: 0 auto; padding: 5rem 0 2rem; }
+	.footer-heading { margin: 0; font-size: clamp(2rem, 4vw, 4rem); font-weight: 800; letter-spacing: -.06em; }
+	.email { display: inline-block; margin-top: 1.25rem; color: var(--acid); font-weight: 750; font-size: clamp(1.15rem, 2vw, 1.65rem); }
+	.bottom { border-top: 1px solid #666666; margin-top: 5rem; padding-top: 1rem; display: flex; justify-content: space-between; gap: 1rem; color: #d1d1d1; font-size: .8rem; } .bottom a { color: inherit; text-underline-offset: .2em; }
+	@media (max-width: 640px) { .footer-inner { width: min(calc(100% - 1.5rem), 78rem); padding-top: 4rem; } .bottom { flex-direction: column; } }
+</style>

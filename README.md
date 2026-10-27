@@ -19,7 +19,7 @@ pnpm build
 
 ## Contact form / AWS SES
 
-The contact form runs through `/api/contact` and sends email with AWS SES. The Astro app uses the Node standalone adapter, so it must be deployed to a Node-capable host rather than as a purely static export.
+The contact form runs through `/api/contact` and sends email with AWS SES. The Astro app uses the Vercel adapter and server output so the endpoint is deployed as a Vercel function.
 
 Configure these environment variables in the deployment environment:
 

@@ -9,8 +9,8 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "@astrojs/node": "^11.1.9",
     "@astrojs/sitemap": "^3.7.3",
+    "@astrojs/vercel": "^11.0.16",
     "@aws-sdk/client-sesv2": "^3.1158.0",
     "@fontsource-variable/manrope": "^5.2.8",
     "astro": "^7.0.5",
